@@ -7,9 +7,12 @@ REMOTE_URL="https://github.com/123456lhwtt/zhongkao-english.git"
 
 echo "正在准备发布包..."
 rm -rf "$DEPLOY_DIR"
-mkdir -p "$DEPLOY_DIR"
 
-rsync -a \
+git clone "$REMOTE_URL" "$DEPLOY_DIR"
+cd "$DEPLOY_DIR"
+git checkout -B main
+
+rsync -a --delete \
   --exclude='.DS_Store' \
   --exclude='.git' \
   --exclude='化学/' \
@@ -21,18 +24,14 @@ rsync -a \
   --exclude='副本中考英语复习1.xlsx' \
   "$SOURCE_DIR/" "$DEPLOY_DIR/"
 
-cd "$DEPLOY_DIR"
-
-if [ ! -d ".git" ]; then
-  git init -b main
-fi
-
-git remote remove origin 2>/dev/null || true
-git remote add origin "$REMOTE_URL"
-
 git add .
-git commit -m "Deploy 中考冲刺战-英语" || true
-git push -u origin main
+
+if git diff --cached --quiet; then
+  echo "没有检测到需要推送的新改动。"
+else
+  git commit -m "Update 中考冲刺战-英语"
+  git push origin main
+fi
 
 echo ""
 echo "推送完成。"
