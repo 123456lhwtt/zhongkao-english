@@ -1,0 +1,12 @@
+.DS_Store
+*.tmp
+*.log
+微信图片_*
+Untitled.docx
+副本中考英语复习1.xlsx
+
+# 非本站第一版需要的资料，先不上传到 GitHub Pages 仓库
+化学/
+数学/
+物理/
+英语二模/

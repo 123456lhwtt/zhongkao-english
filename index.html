@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中考冲刺战-英语</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="返回首页">
+      <span class="brand-mark">E</span>
+      <span>
+        <strong>中考冲刺战-英语</strong>
+        <small>英语提分工作台</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#plan">计划</a>
+      <a href="#practice">练题</a>
+      <a href="#words">词汇</a>
+      <a href="#writing">作文</a>
+      <a href="#resources">资料</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2026 中考英语冲刺</p>
+        <h1>每天 30 分钟，把词汇、题型和作文稳稳补上来。</h1>
+        <p class="hero-text">为中考生准备的英语学习工作台：今日任务、真题资料、专项练习、1600 词检索、作文模板和错题复盘放在一个页面里。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#practice">开始今日练习</a>
+          <a class="btn ghost" href="#resources">查看资料库</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="./英语作文技巧/微信图片_2026-05-12_191935_565.jpg" alt="中考英语作文技巧资料预览">
+      </figure>
+    </section>
+
+    <section class="dashboard" aria-label="学习概览">
+      <article class="metric">
+        <span>距离目标中考</span>
+        <strong id="daysLeft">--</strong>
+        <small>天</small>
+      </article>
+      <article class="metric">
+        <span>今日建议</span>
+        <strong>30</strong>
+        <small>分钟</small>
+      </article>
+      <article class="metric">
+        <span>可用词汇</span>
+        <strong id="wordCount">1600+</strong>
+        <small>词</small>
+      </article>
+      <article class="metric">
+        <span>本地错题</span>
+        <strong id="mistakeCount">0</strong>
+        <small>题</small>
+      </article>
+    </section>
+
+    <section id="plan" class="section split">
+      <div>
+        <p class="eyebrow">Daily Plan</p>
+        <h2>今日学习任务</h2>
+        <p class="section-lead">按“词汇唤醒、题型训练、作文积累、错题复盘”的顺序走，学生不用纠结今天学什么。</p>
+      </div>
+      <div class="task-panel" id="taskPanel"></div>
+    </section>
+
+    <section id="practice" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Practice</p>
+          <h2>专项练习</h2>
+        </div>
+        <button class="icon-btn" id="resetPractice" title="重置练习">↻</button>
+      </div>
+      <div class="practice-layout">
+        <aside class="practice-tabs" id="practiceTabs"></aside>
+        <article class="question-card" id="questionCard"></article>
+      </div>
+    </section>
+
+    <section id="words" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Vocabulary</p>
+          <h2>1600 词检索与背诵</h2>
+        </div>
+        <a class="btn small" href="./常见固定搭配/index.html">打开完整词汇小程序</a>
+      </div>
+      <div class="word-tools">
+        <input id="wordSearch" type="search" placeholder="输入单词或中文释义，如 achieve / 能力">
+        <button class="btn small" id="randomWords">随机 10 词</button>
+      </div>
+      <div class="word-grid" id="wordGrid"></div>
+    </section>
+
+    <section id="writing" class="section split">
+      <div>
+        <p class="eyebrow">Writing</p>
+        <h2>作文模板与句型</h2>
+        <p class="section-lead">先让学生能写完整、写清楚，再逐步加入高级句式和话题表达。</p>
+        <div class="resource-actions">
+          <a class="btn small" href="./中考英语作文句式训练-【学生版】.docx">句式训练</a>
+          <a class="btn small" href="./英语作文技巧/英语作文万能句子.pdf">万能句子</a>
+          <a class="btn small" href="./英语作文技巧/中考英语作文万能模板及万能句型汇总.doc">模板汇总</a>
+        </div>
+      </div>
+      <div class="writing-bank">
+        <button class="template active" data-template="opening">开头</button>
+        <button class="template" data-template="body">展开</button>
+        <button class="template" data-template="ending">结尾</button>
+        <div id="templateText" class="template-text"></div>
+      </div>
+    </section>
+
+    <section id="mistakes" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Review</p>
+          <h2>错题本</h2>
+        </div>
+        <button class="btn small danger" id="clearMistakes">清空</button>
+      </div>
+      <div id="mistakeList" class="mistake-list"></div>
+    </section>
+
+    <section id="resources" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Library</p>
+          <h2>资料库</h2>
+        </div>
+        <input id="resourceSearch" class="compact-search" type="search" placeholder="搜索资料">
+      </div>
+      <div class="resource-grid" id="resourceGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>中考冲刺战-英语</span>
+    <span>资料、练习和进度保存在本机浏览器中</span>
+  </footer>
+
+  <script src="./常见固定搭配/vocab_data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
